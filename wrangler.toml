@@ -8,3 +8,12 @@ binding = "DB"
 database_name = "config-manager"
 database_id = "76b9d4ce-67ca-49c8-b9d4-31a5f94a2ee0"
 migrations_dir = "migrations"
+
+[env.production]
+name = "config-manager-backend-production"
+
+[[env.production.d1_databases]]
+binding = "DB"
+database_name = "config-manager"
+database_id = "76b9d4ce-67ca-49c8-b9d4-31a5f94a2ee0"
+migrations_dir = "migrations"
