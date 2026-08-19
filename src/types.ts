@@ -2,6 +2,7 @@
 
 export interface Env {
 	DB: D1Database;
+	API_KEY: string;
 }
 
 // ─── Domain Models (mirror OpenAPI schemas) ──────────────────────────────────

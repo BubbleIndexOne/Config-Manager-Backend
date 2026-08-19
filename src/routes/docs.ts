@@ -282,6 +282,9 @@ const SWAGGER_HTML = /* html */ `<!DOCTYPE html>
           { "name": "Cloud Snapshots", "description": "Full configuration backup checkpoints and restoration" },
           { "name": "Git Automation",  "description": "Bidirectional synchronization to GitHub / Bitbucket" }
         ],
+        "security": [
+          { "bearerAuth": [] }
+        ],
         "paths": {
           "/api/health": {
             "get": { "summary": "Service Health Check", "tags": ["System"], "operationId": "getHealthStatus",
@@ -354,6 +357,13 @@ const SWAGGER_HTML = /* html */ `<!DOCTYPE html>
           }
         },
         "components": {
+          "securitySchemes": {
+            "bearerAuth": {
+              "type": "http",
+              "scheme": "bearer",
+              "bearerFormat": "API_KEY"
+            }
+          },
           "schemas": {
             "Environment": {
               "type": "object", "required": ["id","name","code","color"],

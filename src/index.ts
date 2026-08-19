@@ -10,6 +10,7 @@ import {
 import { handleGitSync } from "./routes/git";
 import { handleDocs } from "./routes/docs";
 import { notFound } from "./utils/response";
+import { requireAuth } from "./utils/auth";
 import type { Env } from "./types";
 
 /**
@@ -47,6 +48,12 @@ export default {
 		// ── Documentation ─────────────────────────────────────────────────
 		if (pathname === "/docs" || pathname === "/docs/") {
 			return handleDocs(request, env);
+		}
+
+		// ── Authentication ────────────────────────────────────────────────
+		if (pathname.startsWith("/api/")) {
+			const authError = requireAuth(request, env);
+			if (authError) return authError;
 		}
 
 		// ── System ──────────────────────────────────────────────────────────
